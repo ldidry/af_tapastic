@@ -20,6 +20,7 @@ class Af_Tapastic extends Plugin {
 		if (strpos($article["guid"], "tapastic.com") !== FALSE) {
 			if (strpos($article["plugin_data"], "tapastic,$owner_uid:") === FALSE) {
 				$link = str_replace("episode", "embed", $article["link"]);
+				$article["link"] = $link;
 				$doc = new DOMDocument();
 				@$doc->loadHTML(fetch_file_contents($link));
 
