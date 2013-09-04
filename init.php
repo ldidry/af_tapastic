@@ -17,7 +17,7 @@ class Af_Tapastic extends Plugin {
 	function hook_article_filter($article) {
 		$owner_uid = $article["owner_uid"];
 
-		if (strpos($article["link"], "tapastic.com") !== FALSE) {
+		if (strpos($article["guid"], "tapastic.com") !== FALSE) {
 			if (strpos($article["plugin_data"], "tapastic,$owner_uid:") === FALSE) {
 				$link = str_replace("episode", "embed", $article["link"]);
 				$doc = new DOMDocument();
